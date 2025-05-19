@@ -1,0 +1,380 @@
+{
+	"info": {
+		"_postman_id": "a7209a42-e344-458f-95df-3b65dd96d147",
+		"name": "EmployeeManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11053818"
+	},
+	"item": [
+		{
+			"name": "Register a new user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstname\": \"Gus\",\r\n  \"lastname\": \"test\",\r\n  \"email\": \"test@test.com\",\r\n  \"password\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'POST' \\\r\n  'http://localhost:8080/api/auth/register' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"firstname\": \"test\",\r\n  \"lastname\": \"test\",\r\n  \"email\": \"test@test.com\",\r\n  \"password\": \"test\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"test@test.com\",\r\n  \"password\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"authenticate"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'POST' \\\r\n  'http://localhost:8080/api/auth/authenticate' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"email\": \"test@test.com\",\r\n  \"password\": \"test\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_employee}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQ3NjQ2NTYzLCJleHAiOjE3NDc3MzI5NjN9.On0PhyST3ari5EPFgAyZddI9kfvsIAB2yYCa-gFEb2I"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"Ramon\",\r\n  \"middleName\": \"\",\r\n  \"paternalLastName\": \"Lopez\",\r\n  \"maternalLastName\": \"Parra\",\r\n  \"age\": 50,\r\n  \"gender\": \"MASCULINO\",\r\n  \"birthDate\": \"05-04-1988\",\r\n  \"position\": \"Desarrollador Python Sr\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'POST' \\\r\n  'http://localhost:8080/api/employees' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQ3NjQ2NTYzLCJleHAiOjE3NDc3MzI5NjN9.On0PhyST3ari5EPFgAyZddI9kfvsIAB2yYCa-gFEb2I' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"firstName\": \"Ramon\",\r\n  \"middleName\": \"\",\r\n  \"paternalLastName\": \"Lopez\",\r\n  \"maternalLastName\": \"Parra\",\r\n  \"age\": 50,\r\n  \"gender\": \"MASCULINO\",\r\n  \"birthDate\": \"05-04-1988\",\r\n  \"position\": \"Desarrollador Python Sr\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Create multiple employees",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_employee}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQ3NjQ2NTYzLCJleHAiOjE3NDc3MzI5NjN9.On0PhyST3ari5EPFgAyZddI9kfvsIAB2yYCa-gFEb2I"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n\r\n    \"firstName\": \"Julio\",\r\n    \"middleName\": \"Mario\",\r\n    \"paternalLastName\": \"Mendez\",\r\n    \"maternalLastName\": \"Perez\",\r\n    \"age\": 50,\r\n    \"gender\": \"MASCULINO\",\r\n    \"birthDate\": \"05-04-1958\",\r\n    \"position\": \"Desarrollador PHP Sr\"\r\n  },\r\n{\r\n\r\n    \"firstName\": \"Tania\",\r\n    \"middleName\": \"Sofia\",\r\n    \"paternalLastName\": \"Lopez\",\r\n    \"maternalLastName\": \"Pardo\",\r\n    \"age\": 37,\r\n    \"gender\": \"FEMENINO\",\r\n    \"birthDate\": \"05-04-1988\",\r\n    \"position\": \"Manager\"\r\n  }\r\n\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/employees/batch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees",
+						"batch"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'POST' \\\r\n  'http://localhost:8080/api/employees/batch' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQ3NjQ2NTYzLCJleHAiOjE3NDc3MzI5NjN9.On0PhyST3ari5EPFgAyZddI9kfvsIAB2yYCa-gFEb2I' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '[\r\n  {\r\n\r\n    \"firstName\": \"Julio\",\r\n    \"middleName\": \"Mario\",\r\n    \"paternalLastName\": \"Mendez\",\r\n    \"maternalLastName\": \"Perez\",\r\n    \"age\": 50,\r\n    \"gender\": \"MASCULINO\",\r\n    \"birthDate\": \"05-04-1958\",\r\n    \"position\": \"Desarrollador PHP Sr\"\r\n  },\r\n{\r\n\r\n    \"firstName\": \"Tania\",\r\n    \"middleName\": \"Sofia\",\r\n    \"paternalLastName\": \"Lopez\",\r\n    \"maternalLastName\": \"Pardo\",\r\n    \"age\": 37,\r\n    \"gender\": \"FEMENINO\",\r\n    \"birthDate\": \"05-04-1988\",\r\n    \"position\": \"Manager\"\r\n  }\r\n\r\n]'"
+			},
+			"response": []
+		},
+		{
+			"name": "Employee by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_employee}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQ3NjQ2NTYzLCJleHAiOjE3NDc3MzI5NjN9.On0PhyST3ari5EPFgAyZddI9kfvsIAB2yYCa-gFEb2I"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/employees/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees",
+						"3"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'GET' \\\r\n  'http://localhost:8080/api/employees/2' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQ3NjQ2NTYzLCJleHAiOjE3NDc3MzI5NjN9.On0PhyST3ari5EPFgAyZddI9kfvsIAB2yYCa-gFEb2I'"
+			},
+			"response": []
+		},
+		{
+			"name": "All employees",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_employee}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQ3NjQ2NTYzLCJleHAiOjE3NDc3MzI5NjN9.On0PhyST3ari5EPFgAyZddI9kfvsIAB2yYCa-gFEb2I"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'GET' \\\r\n  'http://localhost:8080/api/employees' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQ3NjQ2NTYzLCJleHAiOjE3NDc3MzI5NjN9.On0PhyST3ari5EPFgAyZddI9kfvsIAB2yYCa-gFEb2I'"
+			},
+			"response": []
+		},
+		{
+			"name": "Update an employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_employee}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQ3NjQ2NTYzLCJleHAiOjE3NDc3MzI5NjN9.On0PhyST3ari5EPFgAyZddI9kfvsIAB2yYCa-gFEb2I"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"Guadalupe\",\r\n  \"paternalLastName\": \"Lopez\",\r\n  \"gender\": \"FEMENINO\",\r\n  \"age\": 50,\r\n  \"birthDate\": \"05-04-1968\",\r\n  \"position\": \"Scrum Master\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/employees/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees",
+						"2"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'PUT' \\\r\n  'http://localhost:8080/api/employees/2' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQ3NjQ2NTYzLCJleHAiOjE3NDc3MzI5NjN9.On0PhyST3ari5EPFgAyZddI9kfvsIAB2yYCa-gFEb2I' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"firstName\": \"Guadalupe\",\r\n  \"paternalLastName\": \"Lopez\",\r\n  \"gender\": \"FEMENINO\",\r\n  \"age\": 50,\r\n  \"birthDate\": \"05-04-1968\",\r\n  \"position\": \"Scrum Master\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_employee}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQ3NjQ2NTYzLCJleHAiOjE3NDc3MzI5NjN9.On0PhyST3ari5EPFgAyZddI9kfvsIAB2yYCa-gFEb2I"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/employees/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'DELETE' \\\r\n  'http://localhost:8080/api/employees/1' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQ3NjQ2NTYzLCJleHAiOjE3NDc3MzI5NjN9.On0PhyST3ari5EPFgAyZddI9kfvsIAB2yYCa-gFEb2I'"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "token_employee",
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQ3NjQ5Nzg2LCJleHAiOjE3NDc3MzYxODZ9.nEGjgImikkVSdaySR_DcaPNk8mrbtpbfHnoCn8kbX9o",
+			"type": "default"
+		}
+	]
+}
