@@ -1,52 +1,88 @@
-# Employee Management
+# 👥 Employee Management
 
-A RESTful API for managing employee information, built with Java 17, Spring Boot, and JPA.
+A RESTful API for managing employee information, built with **Java 17**, **Spring Boot**, and **JPA**.
 
-## Features
+---
 
-- CRUD operations for employee management
-- JWT Authentication
-- Hexagonal Architecture
-- SOLID principles
-- Exception handling
-- Swagger documentation
-- Unit tests with JUnit and Mockito
+## 📑 Table of Contents
 
-## Architecture
+- [✨ Features](#-features)
+- [🏗️ Architecture](#-architecture)
+- [👤 Employee Model](#-employee-model)
+- [📡 API Endpoints](#-api-endpoints)
+   - [🔑 Authentication](#-authentication)
+   - [👥 Employee Management](#-employee-management)
+- [🧰 Technologies](#-technologies)
+- [🚀 Getting Started](#-getting-started)
+   - [✅ Prerequisites](#-prerequisites)
+   - [📦 Installation](#-installation)
+- [📘 API Documentation](#-api-documentation)
+- [🧪 Testing](#-testing)
+- [🔐 Security](#-security)
+- [❗ Exception Handling](#-exception-handling)
 
-This project follows the Hexagonal Architecture (Ports and Adapters) pattern with a clear separation of concerns:
+---
 
-- **Domain Layer**: Contains the business entities and repository interfaces (ports)
-- **Application Layer**: Contains the use cases and business logic
-- **Infrastructure Layer**: Contains the adapters for the repositories, controllers, and configuration
+## ✨ Features
 
-## Employee Model
+- ✅ CRUD operations for employee management
+- 🔐 JWT-based authentication
+- 🧱 Hexagonal Architecture (Ports & Adapters)
+- 🧠 SOLID principles applied
+- ⚠️ Centralized exception handling
+- 📘 Swagger/OpenAPI documentation
+- 🧪 Unit tests with JUnit 5 & Mockito
 
-The employee model includes the following fields:
-- First name
-- Middle name
-- Paternal last name
-- Maternal last name
-- Age
-- Gender
-- Birth date (dd-mm-yyyy)
-- Position
+---
 
-## API Endpoints
+## 🏗️ Architecture
 
-### Authentication
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/authenticate` - Authenticate and get JWT token
+This project follows the **Hexagonal Architecture** pattern with a clear separation of concerns:
 
-### Employee Management
-- `GET /api/employees` - Get all employees
-- `GET /api/employees/{id}` - Get employee by ID
-- `POST /api/employees` - Create a new employee
-- `POST /api/employees/batch` - Create multiple employees in a single request
-- `PUT /api/employees/{id}` - Update an employee
-- `DELETE /api/employees/{id}` - Delete an employee
+- **Domain Layer**: Business entities and repository interfaces (ports)
+- **Application Layer**: Use cases and business logic
+- **Infrastructure Layer**: Controllers, repositories, configurations (adapters)
 
-## Technologies
+---
+
+## 👤 Employee Model
+
+The `Employee` entity includes the following fields:
+
+- `firstName`
+- `middleName`
+- `paternalLastName`
+- `maternalLastName`
+- `age`
+- `gender`
+- `birthdate` (`dd-MM-yyyy`)
+- `position`
+
+---
+
+## 📡 API Endpoints
+
+### 🔑 Authentication
+
+| Method | Endpoint                 | Description              |
+|--------|--------------------------|--------------------------|
+| POST   | `/api/auth/register`     | Register a new user      |
+| POST   | `/api/auth/authenticate` | Get JWT token            |
+
+### 👥 Employee Management
+
+| Method | Endpoint                       | Description                 |
+|--------|--------------------------------|-----------------------------|
+| GET    | `/api/employees`               | Get all employees           |
+| GET    | `/api/employees/{id}`          | Get employee by ID          |
+| POST   | `/api/employees`               | Create a new employee       |
+| POST   | `/api/employees/batch`         | Create multiple employees   |
+| PUT    | `/api/employees/{id}`          | Update an existing employee |
+| DELETE | `/api/employees/{id}`          | Delete an employee          |
+
+---
+
+## 🧰 Technologies
 
 - Java 17
 - Spring Boot
@@ -55,50 +91,57 @@ The employee model includes the following fields:
 - JWT Authentication
 - H2 Database (for development)
 - JUnit 5 & Mockito
-- Swagger/OpenAPI
+- Swagger / OpenAPI
 - Maven
 
-## Getting Started
+---
 
-### Prerequisites
-- Java 17 or higher
-- Maven
+## 🚀 Getting Started
 
-### Installation
+### ✅ Prerequisites
 
-1. Clone the repository:
+- Java 17+
+- Maven 3.6+
+
+### 📦 Installation
+
+1. **Clone the repository:**
+
    ```bash
-   git clone https://github.com/trujillodevelop/employee-management.git 
+   git clone https://github.com/trujillodevelop/employee-management.git
    cd employee-management
 
-2. Build the project:
+2. **Build the project**:
    `mvn clean install`
 
-3. Run the application:
+3. **Run the application**:
    `mvn spring-boot:run`
 
 The application will start on http://localhost:8080
 
-### API Documentation
+---
+## 📘 API Documentation
 
 Swagger UI is available at: http://localhost:8080/swagger-ui.html
 
-## Testing
+---
+
+## 🧪 Testing
 
 Run the tests with:
 `mvn test`
-
-## Security
+---
+## 🔐 Security
 
 The API is secured with JWT. To access protected endpoints:
 
 1. Register a user or authenticate to get a JWT token
 2. Include the token in the Authorization header of your requests:
-   \" Authorization: Bearer your_jwt_token \"
-
-## Exception Handling
+   Authorization: Bearer your_jwt_token
+---
+## ❗Exception Handling
 
 The application includes global exception handling for:
-- Resource not found exceptions
+- Resource didn't find exceptions
 - Validation exceptions
 - General exceptions
