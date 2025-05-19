@@ -69,7 +69,7 @@ The employee model includes the following fields:
 1. Clone the repository:
    ```bash
    git clone https://github.com/trujillodevelop/employee-management.git 
-   cd EmployeeManagement
+   cd employee-management
 
 2. Build the project:
    `mvn clean install`
